@@ -28,19 +28,19 @@ public class Book {
 	private int quantity;
 	// @NotBlank(message = "Date is mandatory")
 	@Column(name = "date")
-	private String releaseDate;
+	private String date;
 	// @NotBlank(message = "Image is mandatory")
 	@Column(name = "picture")
 	private String picture;
 	
 
-	public Book(long id, String title, String author, Double price, int quantity, String releaseDate, String picture) {
+	public Book(long id, String title, String author, Double price, int quantity, String date, String picture) {
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.price = price;
 		this.quantity = quantity;
-		this.releaseDate = releaseDate;
+		this.date = date;
 		this.picture = picture;
 	
 	}
@@ -88,12 +88,12 @@ public class Book {
 		this.price = price;
 	}
 
-	public String getReleaseDate() {
-		return releaseDate;
+	public String getDate() {
+		return date;
 	}
 
-	public void setReleaseDate(String releaseDate) {
-		this.releaseDate = releaseDate;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getPicture() {

@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.vermeg.ams.repositories.BookRepository;
 
 @RestController
 @RequestMapping({ "/books" })
+@CrossOrigin(origins = "*")
 public class BookRestController {
 	@Autowired
 	private BookRepository bookRepository;
@@ -40,8 +42,8 @@ public class BookRestController {
 			book.setAuthor(bookRequest.getAuthor());
 			book.setPrice(bookRequest.getPrice());
 			book.setQuantity(bookRequest.getQuantity());
-			book.setReleaseDate(bookRequest.getReleaseDate());
-		
+			book.setDate(bookRequest.getDate());
+
 			return bookRepository.save(book);
 		}).orElseThrow(() -> new ResourceNotFoundException("Book Id " + bookId + " not found"));
 	}
